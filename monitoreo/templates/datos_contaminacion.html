@@ -1,0 +1,264 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datos de Contaminación</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        /* Copia y pega los estilos generales aquí */
+        body {
+            font-family: sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #003D55;
+            color: #ffffff;
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        h1 {
+            font-family: 'Russo One';
+            font-size: 3em;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        main {
+            flex: 1;
+            margin-top: 20px;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            background-color: #008080;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-family: 'Russo One';
+            font-size: 2em;
+            color: #ffffff;
+        }
+
+        p {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.5;
+        }
+
+        /* Estilo de la tabla */
+        table.infoaqitable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px; /* Agrega un margen inferior a la tabla */
+        }
+
+        table.infoaqitable th, table.infoaqitable td {
+            border: 1px solid #003D55;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table.infoaqitable th {
+            background-color: #096;
+            color: #fff;
+        }
+
+        table.infoaqitable tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            background-color: #003D55;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        /* Estilos del contenedor de la tabla */
+        .tabla-container {
+            background-color: #008080;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos del contenedor del mapa */
+        #map-container {
+            height: 500px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Datos de Contaminación</h1>
+        <p>Visualización de la Calidad del Aire</p>
+    </header>
+
+    <nav>
+        <!-- Agrega aquí tu menú de navegación si es necesario -->
+    </nav>
+
+    <main>
+        <section>
+            <h2>Datos de Contaminación</h2>
+            <p>Aquí encontrarás información detallada sobre los niveles de contaminantes en el aire. Los datos se actualizan en tiempo real y te permiten conocer la calidad del aire en tu región.</p>
+        </section>
+
+        <!-- Contenedor con fondo para la tabla -->
+        <div class="tabla-container">
+            <!-- Tabla de información de calidad del aire -->
+            <table class="infoaqitable">
+                <thead>
+                    <tr>
+                        <th>IQA</th>
+                        <th>Implicaciones para la salud</th>
+                        <th>Declaración de advertencia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0 - 50</td>
+                        <td>Bueno</td>
+                        <td>La calidad del aire se considera satisfactoria y la contaminación del aire representa poco o ningún riesgo.</td>
+                    </tr>
+                    <tr>
+                        <td>50 - 100</td>
+                        <td>Moderado</td>
+                        <td>La calidad del aire es aceptable; sin embargo, para algunos contaminantes puede haber un problema de salud moderado para un número muy pequeño de personas que son inusualmente sensibles a la contaminación del aire.</td>
+                    </tr>
+                    <tr>
+                        <td>100 - 150</td>
+                        <td>No es saludable para grupos que son sensibles.</td>
+                        <td>Los miembros de grupos sensibles pueden experimentar efectos en la salud. El público en general no es probable que se vea afectado.</td>
+                    </tr>
+                    <tr>
+                        <td>150 - 200</td>
+                        <td>Insalubre</td>
+                        <td>Todos pueden comenzar a experimentar efectos en la salud; los miembros de grupos sensibles pueden experimentar efectos de salud más graves.</td>
+                    </tr>
+                    <tr>
+                        <td>200 - 300</td>
+                        <td>Muy poco saludable</td>
+                        <td>Advertencias sanitarias de condiciones de emergencia. Existe la posibilidad que la población entera se vea afectada.</td>
+                    </tr>
+                    <tr>
+                        <td>300 - 500</td>
+                        <td>Peligroso</td>
+                        <td>Alerta de salud: todos pueden experimentar efectos de salud más graves.</td>
+                    </tr>
+                    <!-- Otras filas de la tabla -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Contenedor para el mapa de calor -->
+        <div id="map-container" style="height: 500px;"></div>
+        
+        <!-- Agrega más contenido relacionado con los datos de contaminación aquí -->
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Sistema de Monitoreo de Calidad del Aire</p>
+    </footer>
+
+    <!-- Agrega los scripts de DataTables -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.min.js"></script>
+
+    <!-- Agrega los scripts de Leaflet y Heatmap -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="https://unpkg.com/leaflet-ajax/dist/leaflet.ajax.min.js"></script>
+
+    <!-- Script para inicializar la tabla con DataTables -->
+    <script>
+        $(document).ready(function() {
+            $('.infoaqitable').DataTable();
+        });
+    </script>
+
+<!-- Script para inicializar el mapa de calor -->
+<script>
+    // Coordenadas de Arequipa, Perú
+    var initialLat = -16.409047;
+    var initialLon = -71.537451;
+
+    var map = L.map('map-container').setView([initialLat, initialLon], 12);  // Establece la ubicación y el zoom iniciales
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Parsea los datos de calor desde la cadena JSON
+    var heat_data = JSON.parse('{{ heat_data_json|safe|escapejs }}');
+    var heat_data_json = JSON.parse('{{ heat_data_json|safe|escapejs }}');
+
+    // Añade el mapa de calor a la ubicación específica
+    var heat = L.heatLayer(heat_data, {
+        radius: 25,   // Ajusta el radio según tus preferencias
+        blur: 15,     // Ajusta el desenfoque según tus preferencias
+        maxZoom: 18,  // Ajusta el nivel de zoom máximo
+        gradient: {
+            0.2: 'blue',
+            0.4: 'cyan',
+            0.6: 'lime',
+            0.8: 'yellow',
+            1.0: 'red'
+        }
+    }).addTo(map);
+
+    // Añade capa GeoJSON para los límites de los distritos
+    var districtBoundaries = L.geoJSON(districts, {
+        style: function (feature) {
+            // Puedes personalizar los estilos de acuerdo al nivel de contaminación de cada distrito
+            return {
+                fillColor: getColor(feature.properties.contaminationLevel),
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                fillOpacity: 0.7
+            };
+        }
+    }).addTo(map);
+
+    // Función para obtener el color según el nivel de contaminación
+    function getColor(contaminationLevel) {
+        // Define tus rangos de colores aquí según el nivel de contaminación
+        return contaminationLevel > 300 ? 'red' :
+               contaminationLevel > 200 ? 'yellow' :
+               contaminationLevel > 150 ? 'lime' :
+               contaminationLevel > 100 ? 'cyan' :
+               'blue';
+    }
+</script>
+</body>
+</html>

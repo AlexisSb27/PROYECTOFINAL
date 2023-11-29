@@ -1,0 +1,353 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>BEMAP</title>
+
+  <!-- Estilos CSS incorporados -->
+  <style>
+    /* Estilos generales del cuerpo de la página */
+    body {
+      font-family: sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Altura mínima de la página para abarcar toda la ventana */
+    }
+
+    /* Estilos del encabezado */
+    header {
+      background-color: #003D55;
+      color: #ffffff;
+      padding: 20px;
+      border-top-left-radius: 10px; /* Borde redondo en la esquina superior izquierda */
+      border-top-right-radius: 10px; /* Borde redondo en la esquina superior derecha */
+    }
+
+    /* Estilos del título principal */
+    h1 {
+      font-family: 'Russo One'; /* Nueva propiedad para la fuente */
+      font-size: 3em;
+      margin: 0;
+    }
+
+    /* Estilos de la barra de navegación */
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    /* Estilos de los enlaces de navegación */
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      margin-left: 10px; /* Ajusta el espacio entre los enlaces si es necesario */
+    }
+
+    /* Estilos del contenido principal */
+    main {
+      margin-top: 20px;
+      flex: 1; /* Hace que el contenido principal ocupe el espacio restante */
+    }
+
+    /* Estilos de las secciones del contenido */
+    section {
+      padding: 20px;
+      margin-bottom: 30px; /* Ajusta el espacio entre las secciones */
+      border-radius: 10px; /* Borde redondo en todas las esquinas */
+    }
+
+    /* Estilos de los títulos de sección */
+    h2 {
+      font-family: 'Russo One'; /* Nueva propiedad para la fuente */
+      font-size: 2em;
+    }
+
+    /* Estilos del párrafo de texto */
+    p {
+      font-family: 'Montserrat', sans-serif; /* Nueva propiedad para la fuente */
+      line-height: 1.5;
+    }
+
+    /* Estilos del campo de entrada de texto */
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #003D55;
+    }
+
+    /* Estilos del botón */
+    button {
+      background-color: #003D55;
+      color: #ffffff;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    /* Estilos de la sección de resultados (inicialmente oculta) */
+    #resultados {
+      display: none;
+    }
+
+    /* Estilos de la tabla de información de calidad del aire */
+    table.infoaqitable {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table.infoaqitable th, table.infoaqitable td {
+      border: 1px solid #003D55;
+      padding: 8px;
+      text-align: left;
+    }
+
+    table.infoaqitable th {
+      background-color: #096;
+      color: #fff;
+    }
+
+    table.infoaqitable tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    /* Estilos de la sección de enlaces rápidos */
+    section.enlaces-rapidos {
+      background-color: #003D55;
+      color: #ffffff;
+      border-radius: 10px; /* Borde redondo en todas las esquinas */
+      padding: 20px;
+    }
+
+    section.enlaces-rapidos ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    section.enlaces-rapidos li {
+      margin-bottom: 10px;
+    }
+
+    /* Estilos de la sección de contacto */
+    section#contactanos {
+      background-color: #003D55;
+      color: #ffffff;
+      border-radius: 10px; /* Borde redondo en todas las esquinas */
+      padding: 20px;
+      margin-bottom: 80px; /* Ajuste de espacio inferior */
+    }
+
+    /* Estilos de la lista de contacto */
+    section#contactanos ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    section#contactanos li {
+      margin-bottom: 10px;
+    }
+
+    /* Estilos del párrafo de horario de atención */
+    section#contactanos p {
+      font-family: 'Montserrat', sans-serif; /* Nueva propiedad para la fuente */
+      line-height: 1.5;
+    }
+
+    /* Estilos del pie de página */
+    footer {
+      background-color: #003D55;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      border-bottom-left-radius: 10px; /* Borde redondo en la esquina inferior izquierda */
+      border-bottom-right-radius: 10px; /* Borde redondo en la esquina inferior derecha */
+    }
+  </style>
+
+  <!-- Estilos CSS incorporados -->
+
+  
+</head>
+<body>
+
+   <!-- ... (Código HTML) ... -->
+
+
+  <!-- Encabezado de la página -->
+  <header>
+    <h1>BEMAP</h1>
+
+<!-- Barra de navegación -->
+<nav>
+    <a href="#">INICIO</a>
+    <a href="pagina_foro.html">FORO</a>
+    <a href="{% url 'descargar_app' %}">APP</a>
+    <a href="{% url 'datos_contaminacion' %}">BÚSQUEDA</a>
+  </nav>
+  
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <!-- Sección: ¿Qué es BEMAP? -->
+    <section id="que-es" style="background-color: #008080; color: #fff;">
+      <h2>¿QUÉ ES BEMAP?</h2>
+      <p>
+        Es una poderosa herramienta diseñada para brindar a la comunidad información vital sobre la calidad del aire y alertas tempranas relacionadas con la salud pública.
+      </p>
+    </section>
+
+    <!-- Sección: ¿Cómo lo haremos? -->
+    <section id="como-lo-haremos" style="background-color: #008080; color: #fff;">
+      <h2>¿COMÓ LO HAREMOS?</h2>
+      <p>
+        Lograremos llegar a toda la comunidad a través de datos precisos y una experiencia de usuario eficaz y ergonómica.
+      </p>
+    </section>
+
+<!-- Sección: Busca tu localidad -->
+<section id="busca-tu-localidad" style="background-color: #008080; color: #fff;">
+  <h2>BUSCA TU LOCALIDAD </h2>
+  <input type="text" id="localidad" placeholder="Ingresa tu localidad">
+  <button type="button" id="buscar" onclick="buscarLocalidad()">Buscar</button>
+  <div id="resultados"></div>
+</section>
+
+<!-- Agrega este script al final del body o en la sección head -->
+<script>
+  function buscarLocalidad() {
+      // Obtén el valor del campo de búsqueda
+      var localidad = document.getElementById("localidad").value;
+
+      // Si hay una localidad ingresada, redirige a la página de "datos_contaminacion"
+      if (localidad.trim()) {
+          window.location.href = "{% url 'datos_contaminacion' %}?localidad=" + encodeURIComponent(localidad);
+      }
+  }
+
+  // Agrega la escucha al evento 'keydown' para detectar la tecla Enter
+  document.getElementById("localidad").addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+          buscarLocalidad();
+      }
+  });
+</script>
+
+
+<!-- Contenedor con fondo para la tabla -->
+<div style="background-color: #008080; padding: 30px; border-radius: 30px; margin-bottom: 40px;">
+  <!-- Tabla de información de calidad del aire -->
+  <table class="infoaqitable">
+    <thead>
+      <tr>
+        <th style="background-color: #096; color: #fff;">IQA</th>
+        <th style="background-color: #096; color: #fff;">Implicaciones para la salud</th>
+        <th style="background-color: #096; color: #fff;">Declaración de advertencia</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: #096; color: #fff;">
+        <td nowrap="nowrap">0 - 50</td>
+        <td>Bueno</td>
+        <td>La calidad del aire se considera satisfactoria y la contaminación del aire representa poco o ningún riesgo.</td>
+      </tr>
+      <tr style="background-color: #ffde33;color: #fff;">
+        <td nowrap="nowrap">50 - 100</td>
+        <td>Moderado</td>
+        <td>La calidad del aire es aceptable; sin embargo, para algunos contaminantes puede haber un problema de salud moderado para un número muy pequeño de personas que son inusualmente sensibles a la contaminación del aire.</td>
+      </tr>
+      <tr style="background-color: #f93; color: #fff;">
+        <td nowrap="nowrap">100 - 150</td>
+        <td>No es saludable para grupos que son sensibles.</td>
+        <td>Los miembros de grupos sensibles pueden experimentar efectos en la salud. El público en general no es probable que se vea afectado.</td>
+      </tr>
+      <tr style="background-color: #c03; color: #fff;">
+        <td nowrap="nowrap">150 - 200</td>
+        <td>Insalubre</td>
+        <td>Todos pueden comenzar a experimentar efectos en la salud; los miembros de grupos sensibles pueden experimentar efectos de salud más graves.</td>
+      </tr>
+      <tr style="background-color: #609; color: #fff;">
+        <td nowrap="nowrap">200 - 300</td>
+        <td>Muy poco saludable</td>
+        <td>Advertencias sanitarias de condiciones de emergencia. Existe la posibilidad que la población entera se vea afectada.</td>
+      </tr>
+      <tr style="background-color: #7e0023; color: #fff;">
+        <td nowrap="nowrap">300 - 500</td>
+        <td>Peligroso</td>
+        <td>Alerta de salud: todos pueden experimentar efectos de salud más graves.</td>
+      </tr>
+      <!-- Otras filas de la tabla -->
+    </tbody>
+  </table>
+</div>
+
+<!-- Sección: Enlaces rápidos -->
+<section class="enlaces-rapidos" style="background-color: #008080; margin-top: 20px;">
+    <h2>Enlaces Rápidos</h2>
+    <p>Aquí tienes algunos enlaces rápidos:</p>
+    <ul>
+      <li><a href="{% url 'datos_contaminacion' %}">Conoce los datos de contaminación de tu comunidad</a></li>
+      <li><a href="{% url 'descargar_app' %}">Descargar la Aplicación</a></li>
+    </ul>
+  </section>
+
+<!-- Sección: Contáctanos -->
+<section id="contactanos" style="background-color: #008080;">
+  <h2>Contáctanos</h2>
+  <ul>
+    <li>BEMAP - Sede Central:</li>
+    <li>Jr. Cahuide 785, Jesús María - Lima</li>
+    <li>Central telefónica: (01) 614 1414</li>
+    <li>Atención al ciudadano: (01) 470 2867 / (01) 998 487 805</li>
+    <li>Pronóstico del tiempo: (01) 265 8798 / (01) 996 369 766</li>
+    <li>Consultas: <a href="mailto:atencionalciudadano@senamhi.gob.pe">atencionalciudadano@senamhi.gob.pe</a></li>
+  </ul>
+  <p>
+    Horario de atención:
+    <br>
+    Atención al ciudadano: De lunes a viernes de 8:30 a 17:15 Hrs.
+  </p>
+</section>
+
+
+    <!-- Otras secciones y contenido relacionado con el sistema -->
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2023 Sistema de Monitoreo de Calidad del Aire</p>
+  </footer>
+
+
+   <!-- ... (Código HTML) ... -->
+
+  <!-- Script para la función de búsqueda de localidades -->
+  <script>
+      function buscarLocalidad() {
+          // Obtén el valor del campo de búsqueda
+          var localidad = document.getElementById("localidad").value;
+
+          // Si hay una localidad ingresada, redirige a la página de "datos_contaminacion"
+          if (localidad.trim()) {
+              window.location.href = "{% url 'datos_contaminacion' %}?localidad=" + encodeURIComponent(localidad);
+          }
+      }
+
+      // Agrega la escucha al evento 'keydown' para detectar la tecla Enter
+      document.getElementById("localidad").addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+              buscarLocalidad();
+          }
+      });
+  </script>
+
+</body>
+</html>

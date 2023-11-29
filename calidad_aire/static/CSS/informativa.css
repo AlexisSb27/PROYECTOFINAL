@@ -1,0 +1,165 @@
+<!-- Estilos CSS incorporados -->
+<style>
+  /* Estilos generales del cuerpo de la página */
+  body {
+    font-family: sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Altura mínima de la página para abarcar toda la ventana */
+  }
+
+  /* Estilos del encabezado */
+  header {
+    background-color: #003D55;
+    color: #ffffff;
+    padding: 20px;
+    border-top-left-radius: 10px; /* Borde redondo en la esquina superior izquierda */
+    border-top-right-radius: 10px; /* Borde redondo en la esquina superior derecha */
+  }
+
+  /* Estilos del título principal */
+  h1 {
+    font-family: 'Russo One'; /* Nueva propiedad para la fuente */
+    font-size: 3em;
+    margin: 0;
+  }
+
+  /* Estilos de la barra de navegación */
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+
+  /* Estilos de los enlaces de navegación */
+  nav a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    margin-left: 10px; /* Ajusta el espacio entre los enlaces si es necesario */
+  }
+
+  /* Estilos del contenido principal */
+  main {
+    margin-top: 20px;
+    flex: 1; /* Hace que el contenido principal ocupe el espacio restante */
+  }
+
+  /* Estilos de las secciones del contenido */
+  section {
+    padding: 20px;
+    margin-bottom: 30px; /* Ajusta el espacio entre las secciones */
+    border-radius: 10px; /* Borde redondo en todas las esquinas */
+  }
+
+  /* Estilos de los títulos de sección */
+  h2 {
+    font-family: 'Russo One'; /* Nueva propiedad para la fuente */
+    font-size: 2em;
+  }
+
+  /* Estilos del párrafo de texto */
+  p {
+    font-family: 'Montserrat', sans-serif; /* Nueva propiedad para la fuente */
+    line-height: 1.5;
+  }
+
+  /* Estilos del campo de entrada de texto */
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #003D55;
+  }
+
+  /* Estilos del botón */
+  button {
+    background-color: #003D55;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+
+  /* Estilos de la sección de resultados (inicialmente oculta) */
+  #resultados {
+    display: none;
+  }
+
+  /* Estilos de la tabla de información de calidad del aire */
+  table.infoaqitable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  table.infoaqitable th, table.infoaqitable td {
+    border: 1px solid #003D55;
+    padding: 8px;
+    text-align: left;
+  }
+
+  table.infoaqitable th {
+    background-color: #096;
+    color: #fff;
+  }
+
+  table.infoaqitable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  /* Estilos de la sección de enlaces rápidos */
+  section.enlaces-rapidos {
+    background-color: #003D55;
+    color: #ffffff;
+    border-radius: 10px; /* Borde redondo en todas las esquinas */
+    padding: 20px;
+  }
+
+  section.enlaces-rapidos ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  section.enlaces-rapidos li {
+    margin-bottom: 10px;
+  }
+
+  /* Estilos de la sección de contacto */
+  section#contactanos {
+    background-color: #003D55;
+    color: #ffffff;
+    border-radius: 10px; /* Borde redondo en todas las esquinas */
+    padding: 20px;
+    margin-bottom: 80px; /* Ajuste de espacio inferior */
+  }
+
+  /* Estilos de la lista de contacto */
+  section#contactanos ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  section#contactanos li {
+    margin-bottom: 10px;
+  }
+
+  /* Estilos del párrafo de horario de atención */
+  section#contactanos p {
+    font-family: 'Montserrat', sans-serif; /* Nueva propiedad para la fuente */
+    line-height: 1.5;
+  }
+
+  /* Estilos del pie de página */
+  footer {
+    background-color: #003D55;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    border-bottom-left-radius: 10px; /* Borde redondo en la esquina inferior izquierda */
+    border-bottom-right-radius: 10px; /* Borde redondo en la esquina inferior derecha */
+  }
+</style>
